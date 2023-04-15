@@ -2,14 +2,15 @@ package com.example.kitsuapi.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.kitsuapi.base.BaseDiffUtilItemCallback
 import com.example.kitsuapi.databinding.ItemKitsuBinding
 import com.example.kitsuapi.models.DataItem
 
-class MangaAdapter : ListAdapter<DataItem, MangaAdapter.ViewHolder>(BaseDiffUtilItemCallback()) {
+class MangaAdapter :
+    PagingDataAdapter<DataItem, MangaAdapter.ViewHolder>(BaseDiffUtilItemCallback()) {
 
     inner class ViewHolder(private val binding: ItemKitsuBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -31,6 +32,6 @@ class MangaAdapter : ListAdapter<DataItem, MangaAdapter.ViewHolder>(BaseDiffUtil
     }
 
     override fun onBindViewHolder(holder: MangaAdapter.ViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        getItem(position)?.let { holder.onBind(it) }
     }
 }

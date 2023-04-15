@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "KITSUapi"
-include ':app'
+include (":app")

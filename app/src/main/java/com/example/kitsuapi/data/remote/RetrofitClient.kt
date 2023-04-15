@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class RetrofitClient {
+
     private val okHttpClient = OkHttpClient().newBuilder()
         .addInterceptor(provideLoggingInterceptor())
         .connectTimeout(30, TimeUnit.SECONDS)

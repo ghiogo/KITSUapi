@@ -1,4 +1,4 @@
-package com.example.kitsuapi
+package com.example.kitsuapi.utils
 
 sealed class Resource<out T>(
     val data: T? = null,
