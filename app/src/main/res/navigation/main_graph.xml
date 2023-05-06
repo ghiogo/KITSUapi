@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph.xml"
+    app:startDestination="@id/tabLayoutFragment">
+
+    <fragment
+        android:id="@+id/detailAnimeFragment"
+        android:name="com.example.kitsuapi.ui.fragments.anime.detail.AnimeDetailFragment"
+        android:label="fragment_detail_anime"
+        tools:layout="@layout/fragment_anime_detail" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailMangaFragment"
+        android:name="com.example.kitsuapi.ui.fragments.manga.detail.MangaDetailFragment"
+        android:label="fragment_detail_manga"
+        tools:layout="@layout/fragment_manga_detail" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/tabLayoutFragment"
+        android:name="com.example.kitsuapi.ui.fragments.tablayout.TabLayoutFragment"
+        android:label="fragment_tab_layout"
+        tools:layout="@layout/fragment_tab_layout" >
+        <action
+            android:id="@+id/action_tabLayoutFragment_to_detailAnimeFragment"
+            app:destination="@id/detailAnimeFragment" />
+        <action
+            android:id="@+id/action_tabLayoutFragment_to_detailMangaFragment"
+            app:destination="@id/detailMangaFragment" />
+    </fragment>
+
+
+</navigation>
