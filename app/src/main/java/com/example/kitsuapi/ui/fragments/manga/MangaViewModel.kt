@@ -10,7 +10,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MangaViewModel @Inject constructor(
     private val mangaRepository: MangaRepository
-) : BaseViewModel() {
+    ) : BaseViewModel() {
 
     fun fetchManga() = mangaRepository.fetchManga().cachedIn(viewModelScope)
 }

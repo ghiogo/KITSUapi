@@ -9,7 +9,7 @@ import com.example.kitsuapi.base.BaseDiffUtilItemCallback
 import com.example.kitsuapi.databinding.ItemKitsuBinding
 import com.example.kitsuapi.models.DataItem
 
-class MangaAdapter :
+class MangaAdapter(val onItemClick: (id: String) -> Unit) :
     PagingDataAdapter<DataItem, MangaAdapter.ViewHolder>(BaseDiffUtilItemCallback()) {
 
     inner class ViewHolder(private val binding: ItemKitsuBinding) :
@@ -18,6 +18,11 @@ class MangaAdapter :
             binding.tvKitsu.text = item.attributes.titles.enJp
             Glide.with(binding.imageKitsu).load(item.attributes.posterImage.original)
                 .into(binding.imageKitsu)
+        }
+        init {
+            itemView.setOnClickListener {
+                getItem(absoluteAdapterPosition)?.let { it1 -> onItemClick(it1.id) }
+            }
         }
     }
 

@@ -1,15 +1,15 @@
 package com.example.kitsuapi.base
 
-import androidx.lifecycle.liveData
 import com.example.kitsuapi.utils.Resource
+import kotlinx.coroutines.flow.flow
 
-open class BaseRepository {
+abstract class BaseRepository {
 
-    fun<T> doRequest(request : suspend () -> T) = liveData {
+    fun <T> doRequest(request: suspend () -> T) = flow {
         emit(Resource.Loading())
         try {
             emit(Resource.Success(request()))
-        }catch (exception : Exception){
+        } catch (exception: Exception) {
             emit(Resource.Error(exception.localizedMessage ?: "Error", null))
         }
     }

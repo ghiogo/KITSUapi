@@ -1,7 +1,5 @@
 package com.example.kitsuapi.models
-
 import com.google.gson.annotations.SerializedName
-
 data class Attributes(
     @SerializedName("endDate")
     val endDate: String,
@@ -13,6 +11,8 @@ data class Attributes(
     val posterImage: PosterImage,
     @SerializedName("createdAt")
     val createdAt: String,
+    @SerializedName("description")
+    val description: String,
     @SerializedName("subtype")
     val subtype: String,
     @SerializedName("youtubeVideoId")
@@ -52,5 +52,11 @@ data class Attributes(
     @SerializedName("startDate")
     val startDate: String,
     @SerializedName("status")
-    val status: String
+    val status: String,
+    @SerializedName("en_jp")
+    val en_jp: String,
+    @SerializedName("number")
+    val number: Int,
+    @SerializedName("chapterCount")
+    val chapterCount: Int
 )

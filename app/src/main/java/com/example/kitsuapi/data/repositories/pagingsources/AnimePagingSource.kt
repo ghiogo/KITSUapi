@@ -7,11 +7,11 @@ import com.example.kitsuapi.models.DataItem
 
 class AnimePagingSource(
     private val animeService: AnimeApiService
-    ) : BasePagingSource<DataItem>() {
+) : BasePagingSource<DataItem>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, DataItem> {
         return try {
-            val nextPage = params.key ?: MANGA_PAGE
+            val nextPage = params.key ?: KITSU_PAGE
             val response = animeService.fetchAnime(params.loadSize, nextPage)
             val nextPages =
                 Uri.parse(response.links.next).getQueryParameter("page[offset]")!!.toInt()

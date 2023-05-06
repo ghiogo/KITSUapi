@@ -7,10 +7,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
-
     @Singleton
     val retrofitClient = RetrofitClient()
 
@@ -21,4 +20,8 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideMangaApiService() = retrofitClient.provideMangaApiService()
+
+    @Singleton
+    @Provides
+    fun provideSignInApiService() = retrofitClient.providerSignInApiService()
 }

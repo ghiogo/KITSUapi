@@ -6,4 +6,7 @@ plugins {
 
     //hilt
     id("com.google.dagger.hilt.android") version "2.45" apply false
+
+    //save args
+    id("androidx.navigation.safeargs.kotlin") version "2.5.3" apply false
 }

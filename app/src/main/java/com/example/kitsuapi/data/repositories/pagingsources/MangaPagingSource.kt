@@ -11,7 +11,7 @@ class MangaPagingSource(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, DataItem> {
         return try {
-            val nextPage = params.key ?: MANGA_PAGE
+            val nextPage = params.key ?: KITSU_PAGE
             val response = mangaService.fetchManga(params.loadSize, nextPage)
             val nextPages =
                 Uri.parse(response.links.next).getQueryParameter("page[offset]")!!.toInt()

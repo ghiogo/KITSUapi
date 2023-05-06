@@ -11,10 +11,12 @@ import javax.inject.Inject
 class MangaRepository @Inject constructor(
     private val mangaApiService: MangaApiService
 ): BaseRepository() {
-
     fun fetchManga() = Pager(
         PagingConfig(pageSize = 20, initialLoadSize = 10)
     ) {
         MangaPagingSource(mangaApiService)
-    }.liveData
+    }.flow
+    fun fetchDetailManga(id: String) = doRequest {
+        mangaApiService.fetchDetailManga(id)
+    }
 }

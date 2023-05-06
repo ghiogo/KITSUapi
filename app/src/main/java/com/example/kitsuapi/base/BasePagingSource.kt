@@ -13,6 +13,6 @@ abstract class BasePagingSource <T: Any> : PagingSource<Int, T>(){
     }
 
     companion object{
-        const val MANGA_PAGE = 1
+        const val KITSU_PAGE = 1
     }
 }
